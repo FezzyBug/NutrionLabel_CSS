@@ -17,10 +17,26 @@ body {
     box-sizing: border-box;
 }
 
-
-h1{
-    /*This h1 rule and sets the font-weight property to 800, and will make h1 text bolder.*/
+/*This h1 rule and sets the font-weight property to 800, and will make h1 text bolder.*/
+.bold{
     font-weight: 800;
+}
+
+/*
+Why use space instead of "," for our type selector?
+
+Refernce this: https://stackoverflow.com/questions/2636379/what-is-the-difference-between-and-a-space-in-css-selectors
+
+A > B will only select B that are direct children to A (that is, there are no other elements inbetween).
+
+A B will select any B that are inside A, even if there are other elements between them.
+
+ */
+
+
+header h1{
+    /*This h1 rule and sets the font-weight property to 800, and will make h1 text bolder.*/
+    /*font-weight: 800;*/
 
     text-align: center;
 
@@ -38,4 +54,87 @@ p{
 
     border-bottom: 1px solid #888989;
     margin: 2px 0 2px 0;
+
+    /* Setting the .divider selector  clear property  to right will clear the float property,
+    pushing the divider and any following content down below the float text. */
+    clear: right;
+}
+
+.right{
+    /*The float property is used to place an element on the left or right of its container, */
+    /*allowing other content (such as text) to wrap around it.*/
+    float: right;
+
+}
+
+.lg{
+    height: 10px;
+}
+
+
+.lg, .md{
+    background-color: black;
+
+    /*Refrence: https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-typography-by-building-a-nutrition-label/step-28*/
+    border: 0;
+}
+
+.sm-text{
+    /*The rem unit stands for root em, and is relative to the font size of the html element.*/
+    font-size: 0.85rem; /* → 13.6px (remember that you set your html to have a font-size of 16px).*/
+}
+
+.calories-info h1 {
+    /*
+    The larger font size of the number 230 is causing it to overflow.
+    Give the .calories-info h1 an overflow property set to hidden to avoid this.
+    */
+    overflow: hidden;
+
+    margin: -5px -2px;
+}
+
+.calories-info span {
+    font-size: 1.2em;
+
+    margin-top: -7px;
+}
+
+.md{
+    height: 5px;
+}
+
+/* Indents Saturated Fats */
+.indent{
+    margin-left: 1em;
+}
+
+
+/*Target all of the p elements in the daily-value section
+The :not pseudo-selector can be used to select all elements that do not match the given CSS rule.
+
+div:not(#example) {
+    color: red;
+}
+
+The above selects all div elements without an id of example.
+
+            ↓ ↓
+*/
+.daily-value p:not(.no-divider) {
+    border-bottom: 1px solid #888989;
+}
+
+.dbl-indent{
+    margin-left: 2em;
+}
+
+/* Responsible for the nutrition note at the bottom of the nutrition label
+
+ */
+.note{
+    font-size: 0.6rem;
+    margin: 5px 0 5px 0;
+    padding: 0px 8px;
+    text-indent: -8px;
 }
